@@ -1,0 +1,8 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    avoid_print: true
+    avoid_empty_statements: true
+    avoid_unnecessary_containers: false
+    avoid_bool_literals_in_conditional_expressions: false
