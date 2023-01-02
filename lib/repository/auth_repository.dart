@@ -72,7 +72,7 @@ class AuthRepository {
 
       if (token != null) {
         var response = await _client.get(Uri.parse(kHost), headers: {
-          "Content-Type": "application/json; Charset-UTF-8",
+          "Content-Type": "application/json; Charset=UTF-8",
           'x-auth-token': token,
         });
 

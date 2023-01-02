@@ -18,11 +18,11 @@ class DocumentModel {
       };
 
   factory DocumentModel.fromMap(Map<String, dynamic> json) => DocumentModel(
-        title: json['title'],
-        uid: json['uid'],
-        content: List.from(json['content']),
-        createdAt: DateTime.fromMillisecondsSinceEpoch(json['createdAt']),
-        id: json['_id'],
+        title: json["document"]['title'] ?? "",
+        uid: json["document"]['uid'] ?? "",
+        content: List.from(json["document"]['content'] ?? []),
+        createdAt: DateTime.fromMillisecondsSinceEpoch(json["document"]['createdAt']),
+        id: json["document"]['_id'] ?? "",
       );
 
   String toJson() => json.encode(toMap());

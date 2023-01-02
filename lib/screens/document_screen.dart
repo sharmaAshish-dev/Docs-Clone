@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class DocumentScreen extends ConsumerStatefulWidget {
   final String id;
+
   const DocumentScreen({Key? key, required this.id}) : super(key: key);
 
   @override
@@ -12,6 +13,12 @@ class DocumentScreen extends ConsumerStatefulWidget {
 class _DocumentScreenState extends ConsumerState<DocumentScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Container());
+    return Scaffold(
+      body: Container(
+        child: Center(
+          child: Text(widget.id),
+        ),
+      ),
+    );
   }
 }

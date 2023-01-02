@@ -1,10 +1,13 @@
 import 'dart:convert';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart';
 
 import '../constants.dart';
 import '../models/document_model.dart';
 import '../models/error_model.dart';
+
+final documentRepositoryProvider = Provider((ref) => DocumentRepository(client: Client()));
 
 class DocumentRepository {
   final Client _client;
@@ -16,9 +19,9 @@ class DocumentRepository {
 
     try {
       var response = await _client.post(
-        Uri.parse("$kHost/doc/create"),
+        Uri.parse("${kHost}doc/create"),
         headers: {
-          "Content-Type": "application/json; Charset-UTF-8",
+          "Content-Type": "application/json; Charset=UTF-8",
           'x-auth-token': token,
         },
         body: jsonEncode({
@@ -35,6 +38,11 @@ class DocumentRepository {
             ),
           );
           break;
+          default:
+            responseModel = ResponseModel(
+              msg: response.body,
+              data: null,
+            );
       }
     } catch (e) {
       print(e);
